@@ -3,10 +3,17 @@
 describe("Test contact us form via WebdriverUni", () => {
     it.only("Should be able to submit a sucessful submission via contact us form", () => {
         "Cypress code"
+        // Visit the homepage
         cy.visit("https://www.webdriveruniversity.com/Contact-Us/contactus.html")
+
+        // Checking if the homepage has the same title as expected
         cy.document().should("have.property", 'charset').and('eq', 'UTF-8')
         cy.title().should('include', 'WebDriver')
+
+        // Checking if the url matches the expected
         cy.url().should('include', 'https://www.webdriveruniversity.')
+
+        // Filling out forms 
         cy.get('[name="first_name"]').type('Andrew');
         cy.get('[name="last_name"]').type('N');
         cy.get('[name="email"]').type('andrew.noreply@gmail.com');
