@@ -11,8 +11,8 @@ describe("Test contact us form via automation test store", () => {
         //Getting the contact form by using the xpath format and console/cy logging the information using a promise. We can control the order of excution with promises using Cypress or noncypress commands.
         cy.xpath('//a[contains(@href, "contact")]').click().then((contactText) => {
 
-        console.log(contactText.text());
-        cy.log(contactText.text());
+            console.log(contactText.text());
+            cy.log(contactText.text());
 
         })
 
@@ -28,5 +28,5 @@ describe("Test contact us form via automation test store", () => {
 
     })
 
-   
+
 });

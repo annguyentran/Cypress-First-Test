@@ -4,7 +4,11 @@ describe("Test contact us form via WebdriverUni", () => {
     it.only("Should be able to submit a sucessful submission via contact us form", () => {
         "Cypress code"
         // Visit the homepage
-        cy.visit("https://www.webdriveruniversity.com/Contact-Us/contactus.html")
+       // cy.visit("https://www.webdriveruniversity.com/Contact-Us/contactus.html")
+
+       // Visiting the homepage and going to the contact page on the same tab by removing an attribute
+        cy.visit("https://www.webdriveruniversity.com")
+        cy.get("#contact-us").invoke("removeAttr", "target").click();
 
         // Checking if the homepage has the same title as expected
         cy.document().should("have.property", 'charset').and('eq', 'UTF-8')
