@@ -1,3 +1,4 @@
+/// <reference types="Cypress" />
 
 describe('Validate webdriveruni homepage links', () => {
     it("Should be able to submit a sucessful submission via contact us form", () => {
