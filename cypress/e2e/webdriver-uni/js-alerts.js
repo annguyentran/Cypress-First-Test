@@ -28,7 +28,7 @@ describe("Handle js alerts", () => {
         cy.get('#confirm-alert-text').contains('You pressed OK!')
     });
 
-    it.only("Validate js confirm alert box works correctly when clicking cancel", () => {
+    it("Validate js confirm alert box works correctly when clicking cancel", () => {
         //cy.visit("https://www.webdriveruniversity.com/Contact-Us/contactus.html");
         cy.visit("https://www.webdriveruniversity.com")
         cy.get('#popup-alerts').invoke('removeAttr', 'target').click({ force: true })

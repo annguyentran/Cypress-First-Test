@@ -1,12 +1,15 @@
+/// <reference types="cypress" />
+
+
 describe("alisas.invoke", () => {
-    it("Validate A SPECIFIC HAIR CAIR PRODUCT", () => {
+    it.only("Validate A SPECIFIC HAIR CAIR PRODUCT", () => {
         cy.visit("https://automationteststore.com/");
         cy.get("a[href*='product/category&path=']").contains("Hair Care").click();
 
         // Gets the list of the products and then extracts(invokes the method to get the text) the text and stores it in the 'productThumbnail' Using Alias is a shorter way to write it then the beforeEach method. We do not need to keep getting and invoking the text and validating it
 
         cy.get('.fixed_wrapper .prdocutname').eq(0).invoke('text').as('productThumbnail');
-        cy.get('@productThumbnail').its('length').should('be.gt', 5)
+        cy.get('@productThumbnail').its('length').should('be.gt', 18)
         cy.get('@productThumbnail').should('include', 'Seaweed Conditioner')
     });
 
