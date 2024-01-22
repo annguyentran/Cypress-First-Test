@@ -6,9 +6,11 @@ describe("Traversing DOM elements in Cypress", () => {
     })
     it("children() to get the children of DOM elements", () => {
         // Get the class element and use the children command to locate all the children of that class element. Then in the parentheses, type the attribute to get the specific child element and validate that it got the correct one. 
+
         cy.get('.traversal-breadcrumb').children('.active').should('contain', 'Contact Us')});
 
     it("closest() to validate the closest ancestor DOM element", () => {
+
         // From that element, cypress will look for the closest ancestor with that attribute
         cy.get('.traversal-badge').closest('ul').should('have.class', 'list-group')
 
@@ -47,23 +49,30 @@ describe("Traversing DOM elements in Cypress", () => {
 
     it("nextAll() to get all of the next sibling DOM elements within elements", () => {
         // Get the element "Tea" and find all the sibling elements down the DOM page and it does not include up the DOM page
-        cy.get('.traversal-drinks-list').contains('Tea').nextAll().should('have.length', '3')
+        cy.get('.traversal-drinks-list').contains('Milk').nextAll().should('have.length', '2')
 
     });
 
-    it("nextUntil() to get all of the next sibling DOM elements within elements until another element", () => {
+    it.only("nextUntil() to get all of the next sibling DOM elements within elements until another element", () => {
         // Starting with the coffee in the list item, keep locating the elements until the milk ID has been reached. Does not include the element which is the coffee id that is starting with nor the one that it ends with which is the milk ID
+
+        // Got a a lot of items 
+        //cy.get(".traversal-drinks-list").nextUntil('#milk').should('have.length', '2')
+
         cy.get('#coffee').nextUntil('#milk').should('have.length', '1')
+
+        // This is pretty buggy 
+       // cy.get('.menu > *').nextUntil('.sales').should('have.length', '2')
     });
 
-    it("not() to remove DOM element(s) from the set of elements", () => {
+    it.only("not() to remove DOM element(s) from the set of elements", () => {
 
         // Find all the buttons except for the one that we do not want so we put the class in the not command to tell it that we do not want that particular class
         cy.get('.traversal-button-states > button').not('.disabled').should('not.have.class', 'disabled')
 
     });
-
-    it("parent() To get parent DOM element of elements", () => {
+/// Stopping point 
+    it.only("parent() To get parent DOM element of elements", () => {
 
         // locate the element first and then get the parent element which is 1 tag above the element that was located 
 
