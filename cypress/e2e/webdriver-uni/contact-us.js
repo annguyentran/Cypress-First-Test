@@ -1,6 +1,19 @@
+/// <reference types="Cypress" />
 
 describe("Test contact us form via WebdriverUni", () => {
+
+    before(() => {
+        cy.fixture('example').then((data)=> {
+
+
+            //this.details = data; // depending on the context where it is being used (function or browser)
+            globalThis.details = data // Can be accessed/used globally whetever the data is being accessed in a different enviroment (browsers, node.js,etc.) 
+
+        })
+    })
     it.only("Should be able to submit a sucessful submission via contact us form", () => {
+
+    
         "Cypress code"
         // Visit the homepage
        // cy.visit("https://www.webdriveruniversity.com/Contact-Us/contactus.html")
@@ -17,9 +30,9 @@ describe("Test contact us form via WebdriverUni", () => {
         cy.url().should('include', 'https://www.webdriveruniversity.')
 
         // Filling out forms 
-        cy.get('[name="first_name"]').type('Andrew');
-        cy.get('[name="last_name"]').type('N');
-        cy.get('[name="email"]').type('andrew.noreply@gmail.com');
+        cy.get('[name="first_name"]').type(details.first_name);
+        cy.get('[name="last_name"]').type(details.last_name);
+        cy.get('[name="email"]').type(details.email);
         cy.get('textarea.feedback-input').type('Text');
         cy.get('[type="submit"]').click();
         cy.get('h1').should("have.text","Thank You for your Message!");

@@ -1,4 +1,5 @@
 
+/// <reference types="cypress" />
 
 
 describe("Iterate over elements", () => {
@@ -27,7 +28,7 @@ describe("Iterate over elements", () => {
             
             // warps allows us to use cypress commands on elements like .click() instead of using jquery methods 
 
-            cy.warp($el).click();
+            cy.wrap($el).click();
         }
             
         })
