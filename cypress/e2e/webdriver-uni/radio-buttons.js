@@ -1,8 +1,14 @@
 
 describe("Selecting and unselecting radio buttons ", () => {
-    it("Get and check one button at a time", () => {
+
+    beforeEach(() => {
+
         cy.visit("https://www.webdriveruniversity.com")
         cy.get('#dropdown-checkboxes-radiobuttons').invoke('removeAttr', 'target').click({force:true})
+
+    })
+    it("Get and check one button at a time", () => {
+        
 
         // Getting and finding the radio buttons 
         // cy.get('#radio-buttons').find("[type='radio']").first().check()
@@ -15,8 +21,7 @@ describe("Selecting and unselecting radio buttons ", () => {
     });
 
     it("Validating checkboxes", () => {
-        cy.visit("https://www.webdriveruniversity.com")
-        cy.get('#dropdown-checkboxes-radiobuttons').invoke('removeAttr', 'target').click({force:true})
+        
 
         // Checking and validating the radio buttons 
         cy.get("[value='lettuce']").should('not.be.checked')

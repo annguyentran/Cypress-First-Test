@@ -1,8 +1,13 @@
 
 describe("Verify checkboxes via webdriveruni", () => {
-    it("Check and validate checkbox", () => {
+
+    beforeEach(() => {
         cy.visit("https://www.webdriveruniversity.com")
         cy.get('#dropdown-checkboxes-radiobuttons').invoke('removeAttr', 'target').click({force:true})
+
+    })
+    it("Check and validate checkbox", () => {
+
 
         // These are ways we can check the boxes and validate them 
         //cy.get('#checkboxes > :nth-child(1) > input').check()
@@ -15,8 +20,7 @@ describe("Verify checkboxes via webdriveruni", () => {
     });
 
     it("Uncheck and validate the checkbox to see when it is not checked", () => {
-        cy.visit("https://www.webdriveruniversity.com")
-        cy.get('#dropdown-checkboxes-radiobuttons').invoke('removeAttr', 'target').click({force:true})
+       
 
         cy.xpath("//input[@value='option-3']").as('option-3')
         // Not safe to chain commands with uncheck or check 
@@ -25,9 +29,8 @@ describe("Verify checkboxes via webdriveruni", () => {
 
     });
 
-    it.only("check all of the boxes", () => {
-        cy.visit("https://www.webdriveruniversity.com")
-        cy.get('#dropdown-checkboxes-radiobuttons').invoke('removeAttr', 'target').click({force:true})
+    it("check all of the boxes", () => {
+        
 
         cy.xpath("//input[@value='option-3']").as('option-3')
         // Not safe to chain commands with uncheck or check 
