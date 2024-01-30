@@ -19,6 +19,16 @@
 //
 // -- This is a dual command --
 // Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
+
+
+Cypress.Commands.add("navigateTo_WebdriverUni_Homepage", () => {
+    cy.visit("/")
+})
+
+Cypress.Commands.add("navigateTo_WebdriverUni_Checkbox_Page", () => {
+    cy.visit("/" + "/Dropdown-Checkboxes-RadioButtons/index.html")
+})
+
     
  // custom command for the iteration file that can be used multiple times   
 Cypress.Commands.add("selectProduct", productName => {

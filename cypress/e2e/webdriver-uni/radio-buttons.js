@@ -3,8 +3,8 @@ describe("Selecting and unselecting radio buttons ", () => {
 
     beforeEach(() => {
 
-        cy.visit("https://www.webdriveruniversity.com")
-        cy.get('#dropdown-checkboxes-radiobuttons').invoke('removeAttr', 'target').click({force:true})
+        // Custom command to navigate to the desired page
+       cy.navigateTo_WebdriverUni_Checkbox_Page();
 
     })
     it("Get and check one button at a time", () => {
