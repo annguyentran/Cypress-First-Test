@@ -19,7 +19,40 @@
 //
 // -- This is a dual command --
 // Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
+    
+ // custom command for the iteration file that can be used multiple times   
+Cypress.Commands.add("selectProduct", productName => {
+    cy.get(".fixed_wrapper .prdocutname").each(($el, index, $list) => {
+        if($el.text().includes(productName)) {
+            cy.wrap($el).click()
+        }
+    });
+})
+
+// Custom command where we fill out the contact us form and making more dynamic (flexible) so that it can be used more
+Cypress.Commands.add("webdriverUni_ContactForm_Submission", (firstName, lastName, email, comment, $selector, textToLocate) => {
+    cy.get('[name="first_name"]').type(firstName);
+    cy.get('[name="last_name"]').type(lastName);
+    cy.get('[name="email"]').type(email)
+    cy.get('textarea.feedback-input').type(comment)
+    cy.get('[type="submit"]').click();
+    cy.get($selector).contains(textToLocate)
+})
+
+
+Cypress.Commands.add("addProductToBasket", productName => {
+    // Get the product names and iterate through each of them
+    cy.get(".fixed_wrapper .prdocutname").each(($el, index, $list) => {
+
+        // based on the json, if the product matches the name, then the cart will be clicked 
+        if($el.text() === productName) {
+            cy.log($el.text())
+
+            // The index of that product name will have its cart clicked
+            cy.get('.productcart').eq(index).click();
+        }
+    });
+});
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })

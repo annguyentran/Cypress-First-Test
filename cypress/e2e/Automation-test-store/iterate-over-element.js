@@ -3,9 +3,14 @@
 
 
 describe("Iterate over elements", () => {
-    it("Log information of all hair care products", () => {
+
+    beforeEach(() => {
         cy.visit("https://automationteststore.com/");
         cy.get("a[href*='product/category&path=']").contains("Hair Care").click();
+
+
+    })
+    it("Log information of all hair care products", () => {
 
         // Get all of the elements of the hair care in the list and each item in the list will be iterated.
 
@@ -18,19 +23,14 @@ describe("Iterate over elements", () => {
         })
     });
     it("Add specific product to basket", () => {
-        cy.visit("https://automationteststore.com/");
-        cy.get("a[href*='product/category&path=']").contains("Hair Care").click();
+       
+        // Uses the custom-command from the support file to reduce code
+        cy.selectProduct('Seaweed Conditioner')
+    });
 
+    it("Add specific product to basket 2", () => {
         
-        cy.get('.fixed_wrapper .prdocutname').each(($el, index, $list) => {
-
-        if($el.text().includes('Curls to straight Shampoo')) {
-            
-            // warps allows us to use cypress commands on elements like .click() instead of using jquery methods 
-
-            cy.wrap($el).click();
-        }
-            
-        })
+        // Uses the custom-command from the support file to reduce code
+        cy.selectProduct('Eau Parfumee au The Vert Shampoo')
     });
 });

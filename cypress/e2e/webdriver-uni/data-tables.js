@@ -1,14 +1,22 @@
 /// <reference types="Cypress" />
 describe("Handling data via webdriveruni", () => {
+
+    // All the test here will have in thes describe with the it and before each blocks will have a defaultcommandtimeout of 20 seconds.
+
+    Cypress.config('defaultCommandTimeout', 20000);
     beforeEach(() => {
-      cy.visit("https://webdriveruniversity.com/");
+      cy.visit("https://webdriveruniversity.com/", {timeout: 10000});
+
       cy.get("#data-table").invoke("removeAttr", "target").click({ force: true });
     });
     it("Calculate and assert the total age of all users", () => {
         // An empty array that will contain all the user information
         var userDetails = [];
         let numb = 0;
-        cy.get('#thumbnail-1 td').each(($el, index, $list) => {
+
+        //pauses the code here until the user specifies it to continue
+       // cy.pause();
+        cy.get('#thumbnail-1 td').pause().each(($el, index, $list) => {
 
             // The table will be iterated and store data which the text of each element and each index of the array
             userDetails[index] = $el.text();
@@ -23,7 +31,9 @@ describe("Handling data via webdriveruni", () => {
                 //cy.log(userDetails[i])
             }
             cy.log("Found total age: " + numb)
-            expect(numb).to.eq(322)
+
+            // The assertion timeout here is 60000
+            expect(numb).to.eq(322, {timeout:60000})
         })
     });
 
@@ -34,6 +44,9 @@ describe("Handling data via webdriveruni", () => {
 
             // Store each of the elements text into a variable called text
             const text = $el.text()
+
+            // After the element is defined, cypress will wait 2 seconds before executing the next command
+            cy.wait(2000)
 
             // Within that text variable, see if there is a name called 'woods'
             if(text.includes("Woods")) {
