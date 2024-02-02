@@ -1,6 +1,7 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+  projectId: 'e5d756',
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
@@ -18,6 +19,10 @@ module.exports = defineConfig({
     experimentalSessionAndOrigin: true,
     defaultCommandTimeout: 10000,
     pageLoadTimeout: 120000,
+    reporter: 'cypress-multi-reporters',
+    reporterOptions: {
+      configFile: 'reporter-config.json',
+    },
 
     // Setting up the enviromental variable for use and can be changed in the terminal and the changes can happen across multiple test cases.
     env: {

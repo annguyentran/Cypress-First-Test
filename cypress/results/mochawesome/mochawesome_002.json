@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-02-01T01:41:01.548Z",
+    "end": "2024-02-01T01:41:17.204Z",
+    "duration": 15656,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1a0967cd-bf95-453b-86f5-9024f71d9b1f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Automation-test-store\\add-multiple-items-to-basket.js",
+      "file": "cypress\\e2e\\Automation-test-store\\add-multiple-items-to-basket.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "52a0f4f2-3137-42b2-a2ab-c30275ec09dd",
+          "title": "Add multiple items to basket",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add specific items to basket",
+              "fullTitle": "Add multiple items to basket Add specific items to basket",
+              "timedOut": null,
+              "duration": 11332,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Iterate through each of the data in the fixture/products file and passing them through the custom function\nglobalThis.data.productName.forEach(function (element) {\n  cy.addProductToBasket(element);\n});\n// Click to see the cart contents\ncy.get('.dropdown-toggle > .fa').click();",
+              "err": {},
+              "uuid": "fe239ac4-6916-4f43-85b6-2767f961d22e",
+              "parentUUID": "52a0f4f2-3137-42b2-a2ab-c30275ec09dd",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "fe239ac4-6916-4f43-85b6-2767f961d22e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 11332,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

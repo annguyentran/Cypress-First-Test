@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<testsuites>
+<testsuite name="Root Suite" timestamp="2024-02-01T01:22:34" tests="0" file="cypress\e2e\1-getting-started\todo.cy.js" time="0.000" failures="0"></testsuite>
+<testsuite name="example to-do app" timestamp="2024-02-01T01:22:34" tests="3" time="0.000" failures="0">
+  
+  <testcase name="example to-do app displays two todo items by default" time="1.445" classname="displays two todo items by default"></testcase>
+  
+  <testcase name="example to-do app can add new todo items" time="0.809" classname="can add new todo items"></testcase>
+  
+  <testcase name="example to-do app can check off an item as completed" time="0.451" classname="can check off an item as completed"></testcase>
+  
+</testsuite>
+<testsuite name="with a checked task" timestamp="2024-02-01T01:22:40" tests="3" time="1.771" failures="0">
+  
+  <testcase name="example to-do app with a checked task can filter for uncompleted tasks" time="0.624" classname="can filter for uncompleted tasks"></testcase>
+  
+  <testcase name="example to-do app with a checked task can filter for completed tasks" time="0.559" classname="can filter for completed tasks"></testcase>
+  
+  <testcase name="example to-do app with a checked task can delete all completed tasks" time="0.558" classname="can delete all completed tasks"></testcase>
+  
+</testsuite>
+
+<testsuite name="Root Suite" timestamp="2024-02-01T01:22:50" tests="0" file="cypress\e2e\Automation-test-store\add-multiple-items-to-basket.js" time="0.000" failures="0"></testsuite>
+<testsuite name="Add multiple items to basket" timestamp="2024-02-01T01:22:50" tests="1" time="16.730" failures="0">
+  
+  <testcase name="Add multiple items to basket Add specific items to basket" time="11.842" classname="Add specific items to basket"></testcase>
+  
+</testsuite>
+
+<testsuite name="Root Suite" timestamp="2024-02-01T01:21:07" tests="0" file="cypress\e2e\webdriver-uni\checkboxes.js" time="0.000" failures="0"></testsuite>
+<testsuite name="Verify checkboxes via webdriveruni" timestamp="2024-02-01T01:21:07" tests="3" time="9.951" failures="0">
+  
+  <testcase name="Verify checkboxes via webdriveruni Check and validate checkbox" time="5.893" classname="Check and validate checkbox"></testcase>
+  
+  <testcase name="Verify checkboxes via webdriveruni Uncheck and validate the checkbox to see when it is not checked" time="1.936" classname="Uncheck and validate the checkbox to see when it is not checked"></testcase>
+  
+  <testcase name="Verify checkboxes via webdriveruni check all of the boxes" time="1.959" classname="check all of the boxes"></testcase>
+  
+</testsuite>
+
+<testsuite name="Root Suite" timestamp="2024-02-01T01:22:20" tests="0" file="cypress\e2e\selectors.js" time="0.000" failures="0"></testsuite>
+<testsuite name="Selector examples" timestamp="2024-02-01T01:22:20" tests="1" time="5.901" failures="0">
+  
+  <testcase name="Selector examples Examples of Selectors via WebdriverUni Contact Us Page" time="1.975" classname="Examples of Selectors via WebdriverUni Contact Us Page"></testcase>
+  
+</testsuite>
+
+</testsuites>
