@@ -1,6 +1,16 @@
 /// <reference types="Cypress" />
+// "../" is moving up a directory
+// importing the page object
+import Homepage_PO from "../../support/pageObjects/webdriver-uni/Homepage_PO";
+import Contact_Us_PO from "../../support/pageObjects/webdriver-uni/Contact_Us_PO";
 
 describe("Test contact us form via WebdriverUni", () => {
+
+    // Calling the variables here so that there would be no repetition
+    const homepage_PO = new Homepage_PO();
+    const contact_Us_PO = new Contact_Us_PO();
+
+
   before(() => {
     cy.fixture("example").then((data) => {
       //this.details = data; // depending on the context where it is being used (function or browser)
@@ -10,9 +20,13 @@ describe("Test contact us form via WebdriverUni", () => {
   });
   beforeEach(() => {
     // Using an enviromental variable to change the homepage
-    cy.visit(
-      Cypress.env("webdriveruni_homepage" + "/Contact-Us/contactus.html")
-    );
+    // cy.visit(
+    //   Cypress.env("webdriveruni_homepage" + "/Contact-Us/contactus.html")
+    // );
+
+    // declaring the variable to use the page object and its commands
+    homepage_PO.visitHomepage();
+    homepage_PO.clickOn_ContactUs_Button();
   });
   it("Should be able to submit a sucessful submission via contact us form", () => {
     // Visiting the homepage and going to the contact page on the same tab by removing an attribute
@@ -26,17 +40,21 @@ describe("Test contact us form via WebdriverUni", () => {
     // Checking if the url matches the expected
     cy.url().should("include", "https://www.webdriveruniversity.");
 
-    // Filling out forms
-    // cy.get('[name="first_name"]').type(details.first_name);
-    // cy.get('[name="last_name"]').type(details.last_name);
-    // cy.get('[name="email"]').type(details.email);
-    // cy.get('textarea.feedback-input').type('Text');
-    // cy.get('[type="submit"]').click();
-    // cy.get('h1').should("have.text","Thank You for your Message!");
+
 
     // Custom command where we populate the fields using data from our fixture
-    cy.webdriverUni_ContactForm_Submission(
-      details.first_name,
+    // cy.webdriverUni_ContactForm_Submission(
+    //   details.first_name,
+    //   details.last_name,
+    //   details.email,
+    //   "How can I learn Cypress?",
+    //   "h1",
+    //   "Thank You for your Message!"
+    // );
+
+    // Call the page object model and put the parameters/custom command into the page object
+    contact_Us_PO.contactForm_Submission(
+      Cypress.env("first_name"),
       details.last_name,
       details.email,
       "How can I learn Cypress?",
@@ -46,17 +64,21 @@ describe("Test contact us form via WebdriverUni", () => {
   });
 
   it("Should not be able to submit a sucessful submission via contact us form as all fields are required", () => {
-    //cy.visit("https://www.webdriveruniversity.com/Contact-Us/contactus.html")
-    // cy.get('[name="first_name"]').type(details.first_name);
-    // cy.get('[name="last_name"]').type('n');
-    // cy.get('[name="email"]').type('test');
-    // cy.get('textarea.feedback-input').type('Text');
-    // cy.get('[type="submit"]').click();
-    // cy.get('body').contains('Error')
+  
 
     // Custom command where we populate the fields using data from our fixture
     // Adding the enviromental variable here and this can be changed within the terminal
-    cy.webdriverUni_ContactForm_Submission(
+  //   cy.webdriverUni_ContactForm_Submission(
+  //     Cypress.env("first_name"),
+  //     details.last_name,
+  //     " ",
+  //     "How can I learn Cypress?",
+  //     "body",
+  //     "Error: Invalid email address"
+  //   );
+  
+    // Call the page object model and put the parameters/custom command into the page object
+    contact_Us_PO.contactForm_Submission(
       Cypress.env("first_name"),
       details.last_name,
       " ",
@@ -65,4 +87,7 @@ describe("Test contact us form via WebdriverUni", () => {
       "Error: Invalid email address"
     );
   });
+  
+  
+  
 });
