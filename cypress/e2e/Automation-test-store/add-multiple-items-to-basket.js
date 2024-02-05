@@ -22,6 +22,11 @@ describe("Add multiple items to basket", () => {
       // From the page object model that will access the homepage and click on the haircare link
       autoStore_Homepage_Po.accessHomepage();
       autoStore_Homepage_Po.clickOn_HairCare_Link();
+
+      // Cypress automatically clears local storage and cookies before each test and this is used if you want to clear them within a single test case. 
+      // cy.clearCookies();
+      // cy.clearLocalStorage();
+
     });
     it("Add specific items to basket", () => {
 
