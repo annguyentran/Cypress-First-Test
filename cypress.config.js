@@ -19,6 +19,14 @@ module.exports = defineConfig({
     experimentalSessionAndOrigin: true,
     defaultCommandTimeout: 10000,
     pageLoadTimeout: 120000,
+    // Take a screenshot when a test fails
+    screenshotOnRunFailure: true,
+    // Deletes the screenshots in the file before a test is executed when using the run command in the terminal
+    trashAssetsBeforeRuns: true,
+    // Changes the quality of the recorded video
+    videoCompression: 32,
+    // Capture the video when cypress run is executed
+    video: true,
     reporter: 'cypress-multi-reporters',
     reporterOptions: {
       configFile: 'reporter-config.json',

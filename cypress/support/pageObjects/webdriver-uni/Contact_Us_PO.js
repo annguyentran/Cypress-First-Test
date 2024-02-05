@@ -6,6 +6,11 @@ class Contact_Us_PO {
         cy.get('textarea.feedback-input').type(comment)
         cy.get('[type="submit"]').click();
         cy.get($selector).contains(textToLocate)
+
+        // If the previous line of code fails before the screenshot, the screenshot will not be taken
+        cy.screenshot()
+        // Specifying a name for the screenshot
+        cy.screenshot("Testing")
     }
 }
 export default Contact_Us_PO;
