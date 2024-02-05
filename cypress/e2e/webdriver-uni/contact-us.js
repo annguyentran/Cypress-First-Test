@@ -16,6 +16,10 @@ describe("Test contact us form via WebdriverUni", () => {
       //this.details = data; // depending on the context where it is being used (function or browser)
 
       globalThis.details = data; // Can be accessed/used globally whetever the data is being accessed in a different enviroment (browsers, node.js,etc.)
+    
+      // These will overwrite the global viewports in the configuration file
+    //   cy.viewport(550, 750)
+    //   cy.viewport("iphone-3")
     });
   });
   beforeEach(() => {
