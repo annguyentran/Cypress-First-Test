@@ -27,6 +27,8 @@ module.exports = defineConfig({
     videoCompression: 32,
     // Capture the video when cypress run is executed
     video: true,
+    // upload the video to the cypress dashboard
+    videoUploadOnPasses: true,
     // Global viewports that will affect all of the test files unless specified otherwise
     // viewportHeight: 1080,
     // viewportWidth: 1920,
